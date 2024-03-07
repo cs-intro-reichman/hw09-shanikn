@@ -95,29 +95,8 @@ public class LanguageModel {
             else
             {
                 currentChar.cp = currentChar.p + previousChar.cp;
-            }
-            // CharData current=probs.listIterator(j).current.cp;
-            // CharData prev;
-            // if(probs.listIterator(j-1).current==null)
-            // {
-            //     prev=null;
-            // }
-            // else
-            // {
-            //     prev=probs.listIterator(j-1).current.cp;
-            // }
-            // current.p=current.count/charNum;
-            // if(prev==null)
-            // {
-            //     current.cp=current.p;
-            // }
-            // else
-            // {
-            //     current.cp=current.p+prev.cp;
-            // }
-            
+            } 
         }
-
 	}
 
     // Returns a random character from the given probabilities list.
