@@ -84,25 +84,37 @@ public class LanguageModel {
        
         for(int j=0; j<probs.getSize(); j++) //sets p and cp
         {
-            CharData current=probs.listIterator(j).current.cp;
-            CharData prev;
-            if(probs.listIterator(j-1).current==null)
+            CharData currentChar = probs.listIterator(j).current.cp;
+            CharData previousChar = (j == 0) ? null : probs.listIterator(j - 1).current.cp;
+            currentChar.p = (double) currentChar.count /charNum;
+            
+            if (j == 0)
             {
-                prev=null;
+                currentChar.cp = currentChar.p;
             }
             else
             {
-                prev=probs.listIterator(j-1).current.cp;
+                currentChar.cp = currentChar.p + previousChar.cp;
             }
-            current.p=current.count/charNum;
-            if(prev==null)
-            {
-                current.cp=current.p;
-            }
-            else
-            {
-                current.cp=current.p+prev.cp;
-            }
+            // CharData current=probs.listIterator(j).current.cp;
+            // CharData prev;
+            // if(probs.listIterator(j-1).current==null)
+            // {
+            //     prev=null;
+            // }
+            // else
+            // {
+            //     prev=probs.listIterator(j-1).current.cp;
+            // }
+            // current.p=current.count/charNum;
+            // if(prev==null)
+            // {
+            //     current.cp=current.p;
+            // }
+            // else
+            // {
+            //     current.cp=current.p+prev.cp;
+            // }
             
         }
 
